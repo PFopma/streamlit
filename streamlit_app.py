@@ -1,15 +1,48 @@
 import streamlit as st
-import random
 
-# Function to generate a random 12-digit number starting with 1-9
-def generate_school_id():
-    return str(random.randint(1, 9)) + ''.join([str(random.randint(0, 9)) for _ in range(11)])
+# Set page configuration
+st.set_page_config(page_title="SHSK Pupil iSAMS Registration", layout="centered")
 
-# Generate School ID and School Code
-school_id = generate_school_id()
-school_code = f"SHSK{school_id}"
+# Custom CSS for the header
+st.markdown(
+    """
+    <style>
+    .header {
+        background-color: black;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+    }
+    .header img {
+        height: 50px; /* Adjust size as needed */
+        margin-right: 30px; /* Increase space between image and text */
+    }
+    .header h1 {
+        color: white;
+        font-family: 'Segoe UI', sans-serif;
+        font-size: 24px;
+        margin: 0;
+        line-height: 45px; /* Move text up by adjusting line-height */
+        position: relative;
+        top: -5px; /* Move text up by 5 pixels */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-# Streamlit form
+# Header with logo and title
+st.markdown(
+    """
+    <div class="header">
+        <img src="https://my.abingdon.org.uk/static/img/abingdonBranding/MyAbingdonNavLogo.svg" alt="Logo">
+        <h1>SHSK Pupil iSAMS Registration</h1>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+# Your existing form code here
 with st.form("student_form"):
     title = st.text_input("Title")
     forename = st.text_input("Forename")
